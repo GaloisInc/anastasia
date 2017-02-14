@@ -1,0 +1,32 @@
+name:                anastasia
+version:             0.1.0.0
+synopsis:            ANnotated ASTs (Automated, SImple, Awesome)
+description:         Many Haskell formalisations of abstract syntax use the "annotation pattern". Datatypes representing grammar categories are parametrised on the type of the annotation (e.g., a location in the original source text) and every constructor (usually representing a syntactic production) uses the annotation as a first parameter. The library `haskell-src-exts` is, perhaps, the most famous example using that pattern. Often the user doesn't care about the constructor of the AST node and just wants to read and write annotations. To do that, functions needs to be defined that pattern match on the constructor and return or modify the annotation field. Implementing this requries a lot of boilerplate which this small library aims to eliminate. It provides a typeclass for working with annotations and a Template Haskell incancantion to derive instances for user datatypes automatically.
+homepage:            https://github.com/GaloisInc/anastasia
+bug-reports:         https://github.com/GaloisInc/anastasia/issues
+license:             BSD3
+license-file:        LICENSE
+author:              Andrey Chudnov
+maintainer:          andrey@galois.com
+-- copyright:           
+category:            Language
+build-type:          Simple
+extra-source-files:  ChangeLog.md
+cabal-version:       >=1.10
+tested-with:         GHC==8.0.1
+
+Source-repository head
+   type: git
+   location: git://github.com/GaloisInc/anastasia
+
+Source-repository this
+   type: git
+   location: git://github.com/GaloisInc/anastasia
+   tag: 0.1.0.0                                          
+
+library
+  exposed-modules:     Language.Annotated
+  build-depends:       base >=4.8 && < 5
+                     , template-haskell
+                     , lens-simple
+  default-language:    Haskell2010
